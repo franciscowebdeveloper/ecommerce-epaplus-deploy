@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
+import Img from "gatsby-image"
 
 export const BlogPostTemplate = ({
   content,
@@ -20,6 +21,7 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
+
             <div dangerouslySetInnerHTML={{ __html: content }} />
             <div style={{ marginTop: `4rem` }}>
               <p>
@@ -98,7 +100,9 @@ export const pageQuery = graphql`
     content
     date(formatString: "MMMM DD, YYYY")
     title
+    
   }
+  
   query BlogPostByID($id: String!) {
     wordpressPost(id: { eq: $id }) {
       id
@@ -117,9 +121,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-// estaba en la query de graphql
-// tags {
-//   name
-//   slug
-// }

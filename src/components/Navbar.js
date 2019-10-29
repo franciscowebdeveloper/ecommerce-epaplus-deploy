@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from 'gatsby'
 import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import logo from '../img/epaplus.png'
 
 const Navbar = () => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressPage(sort: { fields: wordpress_id }, limit: 20) {
+        allWordpressPage(sort: { fields: wordpress_id }, limit: 4) {
           edges {
             node {
               title

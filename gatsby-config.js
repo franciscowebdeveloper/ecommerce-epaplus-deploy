@@ -1,6 +1,7 @@
 module.exports = {
+  pathPrefix: '/ecommerce-epaplus-deploy',
   siteMetadata: {
-    title: 'Gatsby + WordPress Starter',
+    title: 'Epaplus starter',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
