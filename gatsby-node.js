@@ -138,21 +138,21 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
     })
-    .then(() => {
-      return graphql(`
-        {
-          allWordpressTag(filter: { count: { gt: 0 } }) {
-            edges {
-              node {
-                id
-                name
-                slug
-              }
-            }
-          }
-        }
-      `)
-    })
+    // .then(() => {
+    //   return graphql(`
+    //     {
+    //       allWordpressTag(filter: { count: { gt: 0 } }) {
+    //         edges {
+    //           node {
+    //             id
+    //             name
+    //             slug
+    //           }
+    //         }
+    //       }
+    //     }
+    //   `)
+    // })
 
     .then(result => {
       if (result.errors) {
@@ -160,20 +160,20 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const tagsTemplate = path.resolve(`./src/templates/tag.js`)
+      // const tagsTemplate = path.resolve(`./src/templates/tag.js`)
 
       // Create a Gatsby page for each WordPress tag
-      _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
-        createPage({
-          path: `/tags/${tag.slug}/`,
-          component: tagsTemplate,
-          context: {
-            name: tag.name,
-            slug: tag.slug,
-          },
-        })
-      })
-    })
+    //   _.each(result.data.allWordpressTag.edges, ({ node: tag }) => {
+    //     createPage({
+    //       path: `/tags/${tag.slug}/`,
+    //       component: tagsTemplate,
+    //       context: {
+    //         name: tag.name,
+    //         slug: tag.slug,
+    //       },
+    //     })
+    //   })
+    // })
     .then(() => {
       return graphql(`
         {
