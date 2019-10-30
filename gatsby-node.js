@@ -30,9 +30,6 @@ exports.createPages = ({ actions, graphql }) => {
 
       const pageTemplate = path.resolve(`./src/templates/page.js`)
 
-      // Only publish pages with a `status === 'publish'` in production. This
-      // excludes drafts, future posts, etc. They will appear in development,
-      // but not in a production build.
 
       const allPages = result.data.allWordpressPage.edges
       const pages =
@@ -94,7 +91,7 @@ exports.createPages = ({ actions, graphql }) => {
         })
       })
 
-      // Create a paginated blog, e.g., /, /page/2, /page/3
+      // Create a paginated blog
       paginate({
         createPage,
         items: posts,
